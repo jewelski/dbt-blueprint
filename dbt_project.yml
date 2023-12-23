@@ -1,0 +1,53 @@
+name: 'dbt_blueprint'
+version: '1.0.0'
+config-version: 2
+profile: 'dbt_blueprint'
+
+# paths
+model-paths: ["models"]
+analysis-paths: ["analyses"]
+test-paths: ["tests"]
+seed-paths: ["seeds"]
+macro-paths: ["macros"]
+snapshot-paths: ["snapshots"]
+
+# target and cleaning
+target-path: "target"
+clean-targets:
+  - "target"
+  - "dbt_packages"
+  - "logs"
+
+# dbt version requirement
+require-dbt-version: [">=1.0.0", "<2.0.0"]
+
+quoting:
+  database: false
+  schema: false
+  identifier: false
+
+# models configuration
+models:
+  dbt_blueprint:
+    materialized: table
+    staging:
+      database: staging
+      +tags: ['staging']
+      +docs:
+        node_color: '#90a9b7'
+      demo:
+        schema: demo
+    analytics:
+      database: analytics
+      tags: ['analytics']
+      +docs:
+        node_color: '#cd7f32'
+      demo:
+        schema: demo
+
+# seeds configuration
+seeds:
+  dbt_blueprint:
+    database: raw
+    schema: seeds
+    tags: ['seeds']

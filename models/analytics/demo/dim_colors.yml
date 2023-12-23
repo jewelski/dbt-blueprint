@@ -1,0 +1,27 @@
+version: 2
+models:
+- name: dim_colors
+  description: 'This model represents the color dimension within the analytics layer'
+  columns:
+  - name: color_id
+    description: 'The unique identifier for each color entry'
+    type: integer
+    tests:
+      - unique:
+          tags: ['p1']
+      - not_null:
+          tags: ['p1']
+    constraints:
+      - type: primary_key
+  - name: color_name
+    description: 'The common name of the color'
+    type: varchar
+  - name: hex_code
+    description: 'The hexadecimal code representing the color'
+    type: varchar
+  - name: rgb_code
+    description: 'The RGB (Red, Green, Blue) code of the color'
+    type: varchar
+  - name: inserted_at
+    description: '{{ doc("inserted_at") }}'
+    type: timestamp
