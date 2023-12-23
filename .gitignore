@@ -1,0 +1,6 @@
+databases/
+dbt_packages/
+logs/
+target/
+venv/
+package-lock.yml

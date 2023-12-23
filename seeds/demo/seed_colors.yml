@@ -1,0 +1,21 @@
+version: 2
+
+seeds:
+  - name: seed_colors
+    description: "Seed table that contains a curated list of five distinct colors"
+    columns:
+      - name: id
+        description: 'The unique identifier for each color entry'
+        type: integer
+        tests:
+        - unique
+        - not_null
+      - name: color_name
+        description: 'The common name of the color'
+        type: varchar
+      - name: hex
+        description: 'The hexadecimal code representing the color'
+        type: varchar
+      - name: rgb
+        description: 'The RGB (Red, Green, Blue) code of the color'
+        type: varchar
